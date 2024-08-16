@@ -6,16 +6,16 @@ import enums.Genero;
 import java.time.LocalDate;
 
 public class Livro {
-    private String id;
+    private int id;
     private String titulo;
-    private String autor;
+    private Autor autor;
     private LocalDate dataPublicacao;
     private Categoria categoria;
     private Genero genero;
-    private String editora;
+    private Editora editora;
     private int numeroPaginas;
 
-    public Livro(String id, String titulo, String autor, LocalDate dataPublicacao, Categoria categoria, Genero genero, String editora, int numeroPaginas) {
+    public Livro(int id, String titulo, Autor autor, LocalDate dataPublicacao, Categoria categoria, Genero genero, Editora editora, int numeroPaginas) {
         this.id = id;
         this.titulo = titulo;
         this.autor = autor;
@@ -26,11 +26,11 @@ public class Livro {
         this.numeroPaginas = numeroPaginas;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -42,11 +42,11 @@ public class Livro {
         this.titulo = titulo;
     }
 
-    public String getAutor() {
+    public Autor getAutor() {
         return autor;
     }
 
-    public void setAutor(String autor) {
+    public void setAutor(Autor autor) {
         this.autor = autor;
     }
 
@@ -74,11 +74,11 @@ public class Livro {
         this.genero = genero;
     }
 
-    public String getEditora() {
+    public Editora getEditora() {
         return editora;
     }
 
-    public void setEditora(String editora) {
+    public void setEditora(Editora editora) {
         this.editora = editora;
     }
 
