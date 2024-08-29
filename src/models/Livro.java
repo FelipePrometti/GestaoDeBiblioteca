@@ -1,29 +1,25 @@
 package models;
 
-import enums.Categoria;
-import enums.Genero;
-
-import java.time.LocalDate;
-
 public class Livro {
     private int id;
     private String titulo;
-    private Autor autor;
-    private LocalDate dataPublicacao;
-    private Categoria categoria;
-    private Genero genero;
-    private Editora editora;
-    private int numeroPaginas;
+    private String autor;
+    private int ano;
+    private String categoria;
+    private String genero;
+    private String editora;
 
-    public Livro(int id, String titulo, Autor autor, LocalDate dataPublicacao, Categoria categoria, Genero genero, Editora editora, int numeroPaginas) {
+    public Livro() {
+    }
+
+    public Livro(int id, String titulo, String autor, int ano, String categoria, String genero, String editora) {
         this.id = id;
         this.titulo = titulo;
         this.autor = autor;
-        this.dataPublicacao = dataPublicacao;
+        this.ano = ano;
         this.categoria = categoria;
         this.genero = genero;
         this.editora = editora;
-        this.numeroPaginas = numeroPaginas;
     }
 
     public int getId() {
@@ -42,51 +38,43 @@ public class Livro {
         this.titulo = titulo;
     }
 
-    public Autor getAutor() {
+    public String getAutor() {
         return autor;
     }
 
-    public void setAutor(Autor autor) {
+    public void setAutor(String autor) {
         this.autor = autor;
     }
 
-    public LocalDate getDataPublicacao() {
-        return dataPublicacao;
+    public int getAno() {
+        return ano;
     }
 
-    public void setDataPublicacao(LocalDate dataPublicacao) {
-        this.dataPublicacao = dataPublicacao;
+    public void setAno(int ano) {
+        this.ano = ano;
     }
 
-    public Categoria getCategoria() {
+    public String getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(Categoria categoria) {
+    public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
 
-    public Genero getGenero() {
+    public String getGenero() {
         return genero;
     }
 
-    public void setGenero(Genero genero) {
+    public void setGenero(String genero) {
         this.genero = genero;
     }
 
-    public Editora getEditora() {
+    public String getEditora() {
         return editora;
     }
 
-    public void setEditora(Editora editora) {
+    public void setEditora(String editora) {
         this.editora = editora;
-    }
-
-    public int getNumeroPaginas() {
-        return numeroPaginas;
-    }
-
-    public void setNumeroPaginas(int numeroPaginas) {
-        this.numeroPaginas = numeroPaginas;
     }
 }
