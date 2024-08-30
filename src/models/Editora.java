@@ -1,3 +1,5 @@
+//Criamos essa classe mas não foi solicitada a utilização dela na CP
+
 package models;
 
 public class Editora {

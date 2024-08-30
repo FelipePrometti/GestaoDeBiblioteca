@@ -9,11 +9,11 @@ import java.util.List;
 
 public interface LivroRepositoryInterface {
 
-    void salvarLivro(Livro livro) throws SQLException;;
+    void salvarLivro(Livro livro) ;
 
-    Livro buscarLivroPorId(int id) throws SQLException;;
+    Livro buscarLivroPorId(int id) ;
 
-    void excluirLivro(int id) throws SQLException;;
+    void excluirLivro(int id) ;
 
-    List<Livro> listarTodosOsLivros() throws SQLException;;
+    List<Livro> listarTodosOsLivros() ;
 }

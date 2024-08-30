@@ -1,39 +1,48 @@
 package repository;
 
-import dao.LivroDAO;
 import models.Livro;
-import java.sql.SQLException;
+
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class LivroRepository implements LivroRepositoryInterface {
 
-    private LivroDAO livroDAO;
+    private List<Livro> livros;
 
     public LivroRepository() {
-        this.livroDAO = new LivroDAO();
+        this.livros = new ArrayList<>();
     }
 
     @Override
-    public void salvarLivro(Livro livro) throws SQLException {
-        if (livro.getId() == 0) {
-            livroDAO.cadastrarLivro(livro);
+    public void salvarLivro(Livro livro) {
+        Optional<Livro> existingLivro = livros.stream()
+                .filter(l -> l.getId() == livro.getId())
+                .findFirst();
+        if (existingLivro.isPresent()) {
+            livros.remove(existingLivro.get());
+            livros.add(livro);
         } else {
-            livroDAO.alterarLivro(livro);
+            livros.add(livro);
         }
     }
 
     @Override
-    public Livro buscarLivroPorId(int id) throws SQLException {
-        return livroDAO.buscarPorId(id);
+    public Livro buscarLivroPorId(int id) {
+        return livros.stream()
+                .filter(livro -> livro.getId() == id)
+                .findFirst()
+                .orElse(null);
     }
 
     @Override
-    public void excluirLivro(int id) throws SQLException {
-        livroDAO.excluirLivro(id);
+    public void excluirLivro(int id) {
+        livros.removeIf(livro -> livro.getId() == id);
     }
 
     @Override
-    public List<Livro> listarTodosOsLivros() throws SQLException {
-        return livroDAO.listarTodos();
+    public List<Livro> listarTodosOsLivros() {
+        return new ArrayList<>(livros);
     }
 }
